@@ -1,0 +1,150 @@
+<div class="container">
+  <form [formGroup]="formGroup" (ngSubmit)="save($event)">
+    <mat-horizontal-stepper formArrayName="formArray" linear>
+      <mat-step [completed]="isCompleted(0)" formGroupName="0" label="Tus Datos">
+        <mat-card class="card">
+          <mat-card-title class="card-title mat-h1">Completa tus datos para obtener tu turno</mat-card-title>
+          <mat-card-content class="card-body">
+            <mat-form-field class="formfield" appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input matInput type="text" formControlName="name">
+            </mat-form-field>
+            <mat-form-field class="formfield" appearance="fill">
+              <mat-label>Apellido</mat-label>
+              <input matInput type="text" formControlName="lastname">
+            </mat-form-field>
+            <mat-form-field class="formfield" appearance="fill">
+              <mat-label>DNI</mat-label>
+              <input matInput type="number" formControlName="dni">
+            </mat-form-field>
+
+
+          </mat-card-content>
+          <mat-card-actions align="end">
+
+            <button mat-raised-button type='button' matStepperNext color="primary">Siguiente</button>
+
+          </mat-card-actions>
+        </mat-card>
+      </mat-step>
+      <mat-step [completed]="isCompleted(1)" formGroupName="1" label="Sucursal">
+        <mat-card class="card">
+          <mat-card-title class="card-title">Completa tus datos para obtener tu turno</mat-card-title>
+          <mat-card-content class="card-body">
+            <mat-radio-group formControlName="presence" class="radioGroup">
+              <mat-label class="card-sucursal">¿Desea asistir de forma presencial a una de nuestras sucursales o
+                prefiere que nosotros nos
+                contactemos contigo?</mat-label>
+              <mat-radio-button value="virtual">Virtual</mat-radio-button>
+              <mat-radio-button value="presencial">Presencial en sucursal</mat-radio-button>
+            </mat-radio-group>
+
+            <div class="conditionalContainer" *ngIf="formGroup.value.formArray[1].presence === 'presencial'">
+              <mat-form-field class="formfield" appearance="fill">
+                <mat-label>Sucursal</mat-label>
+                <mat-select [(value)]="selectedOffice" formControlName="office" [(ngModel)]="selectedOffice">
+                    <mat-option [value]="item" *ngFor="let item of sucursalesArray">{{item}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="conditionalContainer" *ngIf="formGroup.value.formArray[1].presence === 'virtual'">
+              <mat-form-field class="formfield" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" formControlName="email">
+              </mat-form-field>
+              <mat-form-field class="formfield" appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input matInput type="text" formControlName="phone">
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+          <mat-card-actions align="end">
+
+            <button mat-raised-button type='button' matStepperPrevious color="accent">Atras</button>
+            <button mat-raised-button type='button' matStepperNext color="primary">Siguiente</button>
+
+          </mat-card-actions>
+        </mat-card>
+      </mat-step>
+      <mat-step [completed]="isCompleted(2)" formGroupName="2" label="Tipo de turno">
+        <mat-card class="card">
+          <mat-card-title class="card-title">Completa tus datos para obtener tu turno</mat-card-title>
+          <mat-card-content class="card-body">
+            <mat-form-field class="formfield" appearance="fill">
+              <mat-label>Tramite</mat-label>
+                <mat-select [(value)]="selectedType" formControlName="type" [(ngModel)]="selectedType">
+                    <mat-option [value]="item" *ngFor="let item of tramitesArray">{{item}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="formfield" color="accent" appearance="fill">
+              <mat-label>Elige dia</mat-label>
+              <input matInput [matDatepicker]="picker1" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="myFilter"
+                formControlName="date">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+
+            <mat-form-field class="formfield" appearance="fill">
+              <mat-label>Elige Hora</mat-label>
+              <mat-select [(value)]="selectedHour" formControlName="hour" [(ngModel)]="selectedHour">
+                <mat-option [value]="item" *ngFor="let item of hoursArray">{{item}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+          </mat-card-content>
+          <mat-card-actions align="end">
+
+            <button mat-raised-button type='button' matStepperPrevious color="accent">Atras</button>
+            <button mat-raised-button type='submit' matStepperNext color="primary">Solicitar Turno</button>
+
+          </mat-card-actions>
+        </mat-card>
+      </mat-step>
+      <mat-step [completed]="isCompleted(2)" label="Confirmacion">
+        <mat-card class="card">
+          <mat-card-title class="card-title">¡Este es tu turno! ¿Esta todo correcto?</mat-card-title>
+          <mat-card-content class="card-body">
+            <div class="corroborate-container">
+
+
+              <div class="corroborate-form1">
+                <div>Nombre:<p class="data">{{name}} {{lastname}}</p>
+                </div>
+                <div>DNI:<p class="data">{{dni}}</p>
+                </div>
+              </div>
+              <div class="corroborate-form2">
+                Tiene turno de manera <p class="data">{{presence}}</p>
+                <div *ngIf="this.presence ==='presencial'">
+                  En nuestra sucursal <p class="data">{{office}}</p>
+                </div>
+                <div *ngIf="this.presence ==='virtual'">
+                  <div>Nos comunicaremos con usted via mail a <p class="data">{{email}}</p>
+                  </div>
+                  <div>o via llamada telefonica al numero <p class="data">{{phone}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="corroborate-form2">
+                <div> El dia <p class="data">{{date | date:'dd/MM/yyyy'}}</p> A las <p class="data">{{hour}}</p>
+                </div>
+                <div>Motivo: <p class="data">{{type}}</p>
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+          <mat-card-actions align="end">
+
+            <button mat-raised-button type='button' matStepperPrevious color="accent">Atras</button>
+            <button mat-raised-button type="button" color="primary" (click)="finish()">Confirmar Turno</button>
+
+          </mat-card-actions>
+        </mat-card>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+</div>

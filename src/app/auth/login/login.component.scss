@@ -1,0 +1,124 @@
+
+ .container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &__title{
+    font-family: 'Nunito', sans-serif;
+    color: #fff;
+  }
+  &__bg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 0.5rem 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    flex: 1 0 0;
+    width: 100%;
+    background-color: #320a46;
+  }
+  &___message-wrapper{
+    max-width: 20rem;
+  }
+  &__form-error{
+    font-family: 'Nunito', sans-serif;
+    color: red;
+    border: 1px solid red;
+    background-color: #ff000040;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  &__form-message{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 2rem;
+  }
+  &__img-wrapper{
+    width: 15rem;
+  }
+  &__img{
+    width: 100%;
+  }
+  &__form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    flex: 2 0 0;
+    width: 100%;
+  }
+  &__form-input{
+    width: 19rem ;
+    max-width: 20rem;
+  }
+  &__form-button{
+    font-family: 'Nunito', sans-serif;
+
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    padding: 0.4rem 3.5rem;
+    color: #fff;
+    background-color: #fc5000 ;
+  }
+
+}
+
+.image{
+  display: none;
+}
+
+.button__hover:hover{
+  transition: ease 1s;
+  background-color: #320a46 ;
+}
+
+
+@media screen and (min-width: 769px){
+  .container{
+    flex-direction: row;
+  }
+
+  .login{
+    flex: 2 1 1;
+    &__img-wrapper{
+      width: 18rem;
+    }
+    &__form-container{
+      justify-content: center;
+    }
+    &__form-input{
+      margin: 1rem 0;
+    }
+    &__message-wrapper{
+      max-width: 22rem;
+    }
+    &__form-message {
+      font-size: 1rem;
+    }
+  }
+  .image-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 4 1 auto;
+    background-color: #f2f2f2;
+  }
+  .image{
+    display: block;
+    object-fit: cover;
+    width: 60%;
+  }
+}

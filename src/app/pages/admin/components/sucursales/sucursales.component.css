@@ -1,0 +1,18 @@
+.sucursales {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.sucursales-card {
+  width: 100%;
+}
+
+mat-card {
+  background-color: #f3f3f3;
+}
+
+.sucursal {
+  background-color: white;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,31 @@
+.turnos {
+  display: none;
+  height: 100%;
+  position: relative;
+}
+
+.turnos-card {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #f3f3f3;
+  padding-bottom: 25px;
+}
+
+@media (min-width: 767px) {
+  .turnos {
+    display: flex;
+    align-items: middle;
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+  mat-paginator {
+    width: 100%;
+    box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%),
+      0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 8px 14px 2px rgb(0 0 0 / 12%);
+  }
+}

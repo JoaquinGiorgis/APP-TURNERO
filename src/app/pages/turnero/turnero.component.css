@@ -1,0 +1,139 @@
+.container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+/* pone las etiquetas de los stepper arriba */
+::ng-deep .mat-horizontal-stepper-header {
+    box-sizing: border-box;
+    flex-direction: column-reverse !important;
+    height: auto;
+    padding: 24px;
+}
+::ng-deep .mat-horizontal-stepper-header .mat-step-label {
+    padding: 0px 0px 16px !important;
+}
+::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before, ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after{
+    top: 68px !important;
+}
+
+/* modifica sombra de la card */
+::ng-deep .mat-card{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   }
+
+.card {
+ width: auto;
+ /* background-color: #f1f1f1; */
+ padding: 30px;
+ margin: 10px auto;
+}
+
+.card-title{
+    margin-left: 50px;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.formfield{
+    margin: 25px;
+    width: 50%;
+}
+
+.radioGroup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-radio-button{
+    align-self: flex-start;
+    margin:  10px 10px 10px 70px;
+}
+
+.conditionalContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data{
+    display: inline-block;
+    font-size: 18px;
+    color: #320A46;
+    font-weight: bold;
+}
+
+.corroborate-form1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.corroborate-form2{
+    font-size: 18px;
+    text-align: flex-start;
+    padding-left: 30px;
+}
+.corroborate-form3{
+    font-size: 18px;
+    text-align: flex-start;
+    padding-left: 30px;
+}
+
+.corroborate-container{
+    width: 50%;
+}
+
+mat-card-actions{
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+mat-card-actions .button{
+    margin: 10px;
+}
+
+
+@media screen and (max-width: 425px ) {
+  .container {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  min-height: 35rem;
+}
+
+.card-title{
+  margin-left: 0;
+  font-size: 1rem;
+  text-align: center;
+}
+.formfield{
+  width: 90%;
+}
+.card-sucursal{
+  text-align: center;
+  padding: 0.5rem;
+}
+
+input{
+  width: 10rem;
+}
+
+}

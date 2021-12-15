@@ -1,0 +1,9 @@
+<div class="sucursales">
+    <mat-card class="sucursales-card">
+        <h1>Sucursales</h1>
+        <mat-card class="sucursal" *ngFor="let sucursal of sucursales">
+            <h2>{{sucursal.name}}</h2>
+            <p>{{sucursal.address}}</p>
+        </mat-card>
+    </mat-card>
+</div>

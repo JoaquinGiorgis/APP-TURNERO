@@ -1,0 +1,28 @@
+.admin {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+}
+
+.section-1 {
+  width: 100%;
+}
+
+@media (min-width: 767px) {
+  .admin {
+    align-items: unset;
+    flex-direction: row;
+  }
+
+  .section-1 {
+    margin-right: 15px;
+    width: 40%;
+  }
+
+  .section-2 {
+    width: 55%;
+  }
+}

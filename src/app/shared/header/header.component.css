@@ -1,0 +1,30 @@
+header {
+  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%),
+    0 1px 18px 0 rgb(0 0 0 / 12%);
+  display: flex;
+  justify-content: center;
+}
+
+.toolbar {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 50px;
+  padding: 15px 30px 10px 30px;
+  text-decoration: none;
+}
+
+.toolbar-link-image {
+  width: 100px;
+}
+
+.toolbar-name{
+  font-size: 15px;
+}
+
+@media (min-width: 768px) {
+  .toolbar {
+    width: 80%;
+  }
+}
